@@ -2,8 +2,8 @@
 
 gcloud auth activate-service-account --key-file=/etc/auth/snapadmin.json
 
-INSTANCE_NAME=redash-prd
-SNAPSHOT_ZONE_NAME=asia-northeast1-c
+INSTANCE_NAME=<インスタンス名>
+SNAPSHOT_ZONE_NAME=<ZONE情報>
 
 if [ `date -d '1 day' +'%d'` = "01" ];then 
     gcloud compute disks snapshot -q ${INSTANCE_NAME} --zone=${SNAPSHOT_ZONE_NAME} --snapshot-names=${INSTANCE_NAME}-`date +'%Y%m'` 
